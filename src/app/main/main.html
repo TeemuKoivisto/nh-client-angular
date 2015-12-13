@@ -1,9 +1,39 @@
-<section id="post-feed">
-	<div data-ng-repeat="post in posts">
-		<h1>
-			<a data-ng-href="post.url">
-				{{ post.title }}
-			</a>
-		</h1>
-	</div>
-</section>
+<link rel="stylesheet" type="text/css" href="app/main/main.css">
+
+<header>
+    <nav class="navbar navbar-default">
+        <ul class="nav navbar-nav">
+            <li><a>The awesomest news-app!</a></li>
+            <li><a ng-href="#/main">Main</a></li>
+            <li><a ng-href="#/feeds">Feeds</a></li>
+            <li><a ng-href="#/login">Login</a></li>
+        </ul>
+    </nav>
+</header>
+
+<button ng-click="main.logPosts()">log</button>
+<button ng-click="main.refresh()">refresh</button>
+
+<div class="main-container">
+
+    <aside class="feed-controller">
+        <div data-ng-repeat="feed in main.feeds" class="feed-toggle">
+            <div class="toggled" ng-show="feed.toggle" ng-click="main.toggleFeed($index)">{{ feed.name }}</div>
+            <div class="untoggled" ng-hide="feed.toggle" ng-click="main.toggleFeed($index)">{{ feed.name }}</div>
+        </div>
+    </aside>
+
+    <section id="post-feed" class="post-feed">
+        <div data-ng-repeat="post in main.posts" class="feed">
+            <div>
+                {{ post.feed }}
+            </div>
+            <h1 class="feed-title">
+                <a data-ng-href="{{ post.url }}">
+                    {{ post.title }}
+                </a>
+            </h1>
+        </div>
+    </section>
+    
+</div>

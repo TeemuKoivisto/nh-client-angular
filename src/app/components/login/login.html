@@ -1,0 +1,14 @@
+<fb:login-button scope="public_profile,email" ng-click="checkLoginState();">
+</fb:login-button>
+
+<div id="status">
+</div>
+
+<div ng-show="loggedin" style="background-color: green;">
+  Logged in.
+</div>
+<div ng-hide="loggedin" style="background-color: red;">
+  Not logged in.
+</div>
+
+<button ng-click="showStatus()">show status</button>

@@ -12,6 +12,11 @@
         controller: 'MainController',
         controllerAs: 'main'
       })
+      .when('/facebook', {
+        templateUrl: 'app/components/login/login.html',
+        controller: 'LoginController',
+        controllerAs: 'login'
+      })
       .otherwise({
         redirectTo: '/'
       });
